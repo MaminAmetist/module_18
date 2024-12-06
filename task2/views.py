@@ -11,5 +11,5 @@ def first_func(request):
     return render(request, 'temple_func.html')
 
 
-class first_class(TemplateView):
+class FirstClass(TemplateView):
     template_name = 'temple_class.html'
