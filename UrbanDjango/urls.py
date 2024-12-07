@@ -20,7 +20,9 @@ from django.urls import path
 from django.views.generic import TemplateView
 # from task2.views import start_func, first_func, first_class
 # from task3.views import started_func, store_func, buy_func
-from task4.views import started_func, store_func, buy_func
+# from task4.views import started_func, store_func, buy_func
+from task5.views import sign_up_by_django
+#, sign_up_by_html)
 
 # urlpatterns = [
 #    path('admin/', admin.site.urls),
@@ -36,9 +38,17 @@ from task4.views import started_func, store_func, buy_func
 #    path('buy/', buy_func)
 # ] ####  task3
 
+# urlpatterns = [
+#    path('admin/', admin.site.urls),
+#    path('', started_func),
+#    path('store/', store_func),
+#    path('buy/', buy_func)
+# ] #### task4
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', started_func),
-    path('store/', store_func),
-    path('buy/', buy_func)
+
+    path('', sign_up_by_django),
 ]
+#path('', sign_up_by_html),
+#django_sign_up/

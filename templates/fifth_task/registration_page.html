@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Введите логин:</label>
+        <input type="text" id="username" name="username" maxlength="30" value="{{ current_name }}" required><br>
+
+        <label for="pass">Введите пароль:</label>
+        <input type="password" id="pass" name="password" minlength="8" required><br>
+
+        <label for="rep_pass">Повторите пароль:</label>
+        <input type="password" id="rep_pass" name="repeat_password" minlength="8" required><br>
+
+        <label for="age">Введите свой возраст:</label>
+        <input type="number" id="age" name="age" maxlength="3" min="18" max="999" required><br>
+
+        <label for="subscribe">
+            <input type="checkbox" id="subscribe" name="subscribe">
+            Подписаться на рассылку.
+        </label><br>
+
+        <button type="submit">Отправить</button>
+
+
+
+    </form>
+
+
+
+
+</body>
+</html>
