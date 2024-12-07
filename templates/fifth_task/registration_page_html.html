@@ -7,6 +7,7 @@
     <title>Title</title>
 </head>
 <body>
+    <h3>{{ error }}</h3>
     <form method="post">
         {% csrf_token %}
         <label for="username">Введите логин:</label>
@@ -26,14 +27,7 @@
             Подписаться на рассылку.
         </label><br>
 
-        <button type="submit">Отправить</button>
-
-
-
+        <button type="submit">Зарегистрироваться</button>
     </form>
-
-
-
-
 </body>
 </html>

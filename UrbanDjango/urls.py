@@ -21,8 +21,7 @@ from django.views.generic import TemplateView
 # from task2.views import start_func, first_func, first_class
 # from task3.views import started_func, store_func, buy_func
 # from task4.views import started_func, store_func, buy_func
-from task5.views import sign_up_by_django
-#, sign_up_by_html)
+from task5.views import sign_up_by_django, sign_up_by_html
 
 # urlpatterns = [
 #    path('admin/', admin.site.urls),
@@ -47,8 +46,6 @@ from task5.views import sign_up_by_django
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', sign_up_by_django),
+    path('', sign_up_by_html),
+    path('django_sign_up/', sign_up_by_django),
 ]
-#path('', sign_up_by_html),
-#django_sign_up/
