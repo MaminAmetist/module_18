@@ -18,7 +18,7 @@ def sign_up_by_django(request):
 
     else:
         form = UserRegister()
-    return render(request, 'registration_page.html', {'form': form})
+    return render(request, 'registration_page_django.html', {'form': form})
 
 
 def sign_up_by_html(request):
