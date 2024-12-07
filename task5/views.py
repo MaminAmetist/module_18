@@ -1,6 +1,3 @@
-from http.client import error, HTTPException
-from lib2to3.fixes.fix_input import context
-
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import UserRegister
