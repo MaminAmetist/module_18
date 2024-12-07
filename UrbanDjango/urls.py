@@ -19,7 +19,8 @@ from django.urls import path
 
 from django.views.generic import TemplateView
 # from task2.views import start_func, first_func, first_class
-from task3.views import started_func, store_func, buy_func
+# from task3.views import started_func, store_func, buy_func
+from task4.views import started_func, store_func, buy_func
 
 # urlpatterns = [
 #    path('admin/', admin.site.urls),
@@ -27,6 +28,13 @@ from task3.views import started_func, store_func, buy_func
 #    path('func/', first_func),
 #    path('class/', first_class.as_view()),
 # ] ####  task2
+
+# urlpatterns = [
+#    path('admin/', admin.site.urls),
+#    path('', started_func),
+#    path('store/', store_func),
+#    path('buy/', buy_func)
+# ] ####  task3
 
 urlpatterns = [
     path('admin/', admin.site.urls),

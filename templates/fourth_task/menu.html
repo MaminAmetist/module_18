@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stile.css' %}">
+</head>
+<body>
+
+<header>
+    {% block header %}
+    <h1>Главная страница</h1><br>
+    {% endblock %}
+</header>
+
+{% block navigation %}
+    <h2>Меню навигации:</h2>
+    <h3><a href="/">Главная</a></h3>
+    <h3><a href="/store/">Каталог</a></h3>
+    <h3><a href="/buy/">Корзина</a></h3>
+{% endblock %}
+
+{% block catalog %}
+    <h2>{{ head_list }}</h2>
+    {% if games %}
+
+        {% for game in games %}
+            {{ game }}
+            <button>В корзину</button>
+            <br>
+        {% endfor %}
+
+    {% else %}
+        Товары отсутствуют
+    {% endif %}
+
+{% endblock %}
+
+
+<footer>
+    {% block footer %}
+    <br>__________________________________
+    <p> Служба моральной поддержки:
+        <br>8-800-000-00-00</p>
+    {% endblock %}
+</footer>
+
+</body>
+</html>
