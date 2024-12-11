@@ -10,6 +10,7 @@
 
     <form method="post">
         {% csrf_token %}
+        {{ form.as_p }}
         <label for="username">Введите логин:</label>
         <input type="text" id="username" name="username" ><br>
 
