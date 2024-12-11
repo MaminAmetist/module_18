@@ -14,9 +14,13 @@ def sign_up_by_django(request):
             password = form.cleaned_data['password']
             repeat_password = form.cleaned_data['repeat_password']
             age = form.cleaned_data['age']
+            print(age)
             subscribe = form.cleaned_data['subscribe']
             if password == repeat_password and age >= 18 and username not in users:
                 return HttpResponse(f'Приветствуем, {username}!')
+            elif len(password) < 8:
+                info['error'] = 'Пароль слишком короткий.'
+                return HttpResponse(info['error'])
             elif password != repeat_password:
                 info['error'] = 'Пароли не совпадают.'
                 return HttpResponse(info['error'])
