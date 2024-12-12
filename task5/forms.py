@@ -15,9 +15,8 @@ class UserRegister(forms.Form):
                                error_messages={'required': 'Пароль слишком короткий.', },
                                help_text='Пароль должен содержать не менее 8 символов.')
     repeat_password = forms.CharField(min_length=8, widget=forms.PasswordInput(), label='Повторите пароль:')
-    age = forms.IntegerField(min_value=18, label='Введите свой возраст:',
+    age = forms.IntegerField(min_value=18, label='Введите свой возраст:', validators=[validate_age],
                              error_messages={'required': 'Вы должны быть старше 18.', })
-    # age = forms.IntegerField(label='Введите свой возраст:', validators=[validate_age])
     subscribe = forms.BooleanField(required=False, label='Подписаться на рассылку.')
 
     def clean_username(self):
