@@ -15,16 +15,19 @@ class UserRegister(forms.Form):
                                error_messages={'required': 'Пароль слишком короткий.', },
                                help_text='Пароль должен содержать не менее 8 символов.')
     repeat_password = forms.CharField(min_length=8, widget=forms.PasswordInput(), label='Повторите пароль:')
-    age = forms.IntegerField(min_value=18, label='Введите свой возраст:', validators=[validate_age],
+    age = forms.IntegerField(min_value=18, label='Введите свой возраст:',
                              error_messages={'required': 'Вы должны быть старше 18.', })
     subscribe = forms.BooleanField(required=False, label='Подписаться на рассылку.')
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
+        users = ['Anna', 'Den', 'Cat']
         if ' ' in username:
             raise forms.ValidationError('Имя пользователя не должно содержать пробелы.')
-        if len(username) > 30:
+        elif len(username) > 30:
             raise forms.ValidationError('Имя пользователя должно быть не более 30 символов.')
+        elif username in users:
+            raise forms.ValidationError('Пользователь уже существует.')
         return username
 
     def clean_password(self):
@@ -38,3 +41,4 @@ class UserRegister(forms.Form):
         age = self.cleaned_data.get('age')
         if len(str(age)) > 3:
             raise forms.ValidationError('Столько не живут.')
+        return age

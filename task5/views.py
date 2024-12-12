@@ -5,8 +5,6 @@ from .forms import UserRegister
 
 # Create your views here.
 def sign_up_by_django(request):
-    users = ['Anna', 'Den', 'Cat']
-    info = {}
     if request.method == 'POST':
         form = UserRegister(request.POST)
         if form.is_valid():
@@ -15,13 +13,10 @@ def sign_up_by_django(request):
             repeat_password = form.cleaned_data['repeat_password']
             age = form.cleaned_data['age']
             subscribe = form.cleaned_data['subscribe']
-            if password == repeat_password and len(str(age)) <= 3 and username not in users:
-                return HttpResponse(f'Приветствуем, {username}!')
-            elif username in users:
-                info['error'] = 'Пользователь уже существует.'
-        else:
-            form = UserRegister()
-    return render(request, 'registration_page_django.html', {'form': form, 'info': info})
+            return HttpResponse(f'Приветствуем, {username}!')
+    else:
+        form = UserRegister()
+    return render(request, 'registration_page_django.html', {'form': form})
 
 
 def sign_up_by_html(request):
