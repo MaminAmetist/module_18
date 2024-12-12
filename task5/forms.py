@@ -10,7 +10,7 @@ def validate_age(value):
 
 class UserRegister(forms.Form):
     username = forms.CharField(max_length=30, label='Введите логин:', error_messages={'required': 'Тысяча чертей!', },
-                               help_text='Имя пользователя должно быть не более 30 символовю')
+                               help_text='Имя пользователя должно быть не более 30 символов.')
     password = forms.CharField(min_length=8, widget=forms.PasswordInput(), label='Введите пароль:',
                                error_messages={'required': 'Пароль слишком короткий.', },
                                help_text='Пароль должен содержать не менее 8 символов.')

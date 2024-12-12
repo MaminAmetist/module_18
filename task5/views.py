@@ -18,10 +18,10 @@ def sign_up_by_django(request):
             if password == repeat_password and len(str(age)) <= 3 and username not in users:
                 return HttpResponse(f'Приветствуем, {username}!')
             elif username in users:
-                return HttpResponse('Пользователь уже существует.')
+                info['error'] = 'Пользователь уже существует.'
         else:
             form = UserRegister()
-    return render(request, 'registration_page_django.html', {'form': form})
+    return render(request, 'registration_page_django.html', {'form': form, 'info': info})
 
 
 def sign_up_by_html(request):
