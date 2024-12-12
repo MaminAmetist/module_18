@@ -30,15 +30,12 @@ class UserRegister(forms.Form):
             raise forms.ValidationError('Пользователь уже существует.')
         return username
 
-    def clean_repeat_password(self):
-        repeat_password = self.repeat_password
-        return repeat_password
-
     def clean_password(self):
+        cleaned_data = super().clean()
         password = self.cleaned_data.get('password')
         repeat_password = self.cleaned_data.get('repeat_password')
-        if password != repeat_password:
-            raise forms.ValidationError(f'Пароли не совпадают.{password, repeat_password}')
+        if password and repeat_password and password != repeat_password:
+            raise forms.ValidationError(f'Пароли не совпадают,{password, repeat_password}')
         return password, repeat_password
 
     def clean_age(self):
