@@ -27,3 +27,15 @@ class UserRegister(forms.Form):
         if len(username) > 30:
             raise forms.ValidationError('Имя пользователя должно быть не более 30 символов.')
         return username
+
+    def clean_password(self):
+        password = self.cleaned_data.get('password')
+        repeat_password = self.cleaned_data.get('repeat_password')
+        if password != repeat_password:
+            raise forms.ValidationError('Пароли не совпадают.')
+        return password
+
+    def clean_age(self):
+        age = self.cleaned_data.get('age')
+        if len(str(age)) > 3:
+            raise forms.ValidationError('Столько не живут.')

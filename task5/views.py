@@ -17,12 +17,8 @@ def sign_up_by_django(request):
             subscribe = form.cleaned_data['subscribe']
             if password == repeat_password and len(str(age)) <= 3 and username not in users:
                 return HttpResponse(f'Приветствуем, {username}!')
-            elif password != repeat_password:
-                info['error'] = 'Пароли не совпадают.'
-            elif len(str(age)) > 3:
-                info['error'] = 'Столько не живут.'
             elif username in users:
-                info['error'] = 'Пользователь уже существует.'
+                return HttpResponse('Пользователь уже существует.')
         else:
             form = UserRegister()
     return render(request, 'registration_page_django.html', {'form': form})
