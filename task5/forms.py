@@ -33,7 +33,7 @@ class UserRegister(forms.Form):
     def clean_password(self):
         password = self.cleaned_data.get('password')
         repeat_password = self.cleaned_data.get('repeat_password')
-        if hash(password) != hash(repeat_password):
+        if password != repeat_password:
             raise forms.ValidationError('Пароли не совпадают.')
         return password
 
